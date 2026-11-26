@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUICKCODE — Быстрые лендинги на чистом коде в РБ</title>
+  <meta name="description" content="Сверхбыстрые лендинги на чистом коде за 2–3 дня для рекламы в Беларуси. Без абонплаты, с заявками в Telegram и готовностью к БелГИЭ.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Деликатный зимний снег -->
+  <canvas id="snow-canvas" class="snow-canvas" aria-hidden="true"></canvas>
+
+  <!-- Десктопная микро-деталь: мягкий ореол и координаты -->
+  <div id="swiss-crosshair" class="swiss-crosshair-point" aria-hidden="true"></div>
+  <div class="swiss-cursor-hud" aria-hidden="true">
+    <span class="swiss-cursor-hud__dot"></span>
+    <span>MINSK</span>
+    <span id="cursor-coords">X:0000 Y:0000</span>
+  </div>
+
+  <!-- ПАРЯЩАЯ ЦЕНТРАЛЬНАЯ КАПСУЛА НАВИГАЦИИ + СТАТУС-БАР -->
+  <header class="site-header">
+    <nav class="nav-capsule" aria-label="Основная навигация">
+      <a href="#top" class="brand-logo" aria-label="QuickCode">
+        <span class="brand-icon">&lt;/&gt;</span>
+        <span>quickcode.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#inside">Что внутри</a>
+        <a href="#pricing">Price</a>
+        <a href="#contact">Заявка</a>
+      </div>
+
+      <a href="https://t.me/quickcodeby" target="_blank" rel="noopener" class="header-tg-btn">
+        Telegram ↗
+      </a>
+    </nav>
+
+    <div class="status-strip" role="status" aria-live="polite">
+      <span class="status-strip__live">
+        <span class="status-dot"></span>
+        <span>МИНСК / ПРИНИМАЮ ЗАКАЗЫ</span>
+      </span>
+      <span><strong id="minsk-time">12:00:00 UTC+3</strong></span>
+      <span><strong id="page-metrics">18 KB · 0.04s</strong></span>
+    </div>
+  </header>
+
+  <main id="top" class="site-wrapper">
+
+    <!-- ====================================================================
+         01 / HERO — EDITORIAL АНТИКВА + КРУПНЫЙ АДАПТИВНЫЙ 3D </> ЛОГОТИП
+         ==================================================================== -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-stage">
+        <div class="hero-3d-wrap" aria-hidden="true">
+          <img id="hero-3d-img" class="hero-3d-img" src="assets/logo-3d-code.jpg" alt="">
+        </div>
+
+        <h1 id="hero-heading" class="hero-title">
+          <span class="hero-line hero-line--1">
+            <span>БЫСТРЫЕ</span>
+            <span class="editorial-italic">лендинги</span>
+          </span>
+          <span class="hero-line hero-line--2">
+            <span class="editorial-italic">на</span>
+            <span>ЧИСТОМ КОДЕ</span>
+          </span>
+          <span class="hero-line hero-line--3">
+            <span class="editorial-italic">для рекламы</span>
+            <span>В РБ</span>
+          </span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-quote">
+            «Чистый код — это скорость, конверсия и тишина в каждой детали.»
+          </p>
+
+          <div class="hero-bottom-inner">
+            <p class="hero-subtitle">
+              Лёгкие лендинги за <strong>2–3 дня</strong> для таргетологов и бизнеса в Беларуси. Заявки в <strong>Telegram</strong>, скорость <strong>0.4s</strong> и готовность к хостингу <strong>БелГИЭ</strong>.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="dual-btn">
+                <span class="pill-btn pill-btn--snow">Обсудить задачу</span>
+                <span class="circle-arrow">→</span>
+              </a>
+              <a href="https://t.me/quickcodeby" target="_blank" rel="noopener" class="ghost-tg-link">
+                @quickcodeby ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         ПОДХОД + ПЕРЕКЛЮЧАТЕЛЬ «ЧИСТЫЙ КОД VS КОНСТРУКТОР»
+         ==================================================================== -->
+    <section aria-labelledby="about-heading">
+      <div class="about-row">
+        <div>
+          <h2 id="about-heading" class="section-heading">
+            БЕЗ <span class="editorial-italic">тильды</span> И ЛИШНЕГО ВЕСА
+          </h2>
+          <p class="section-lead">
+            Пишу чистый HTML5, CSS3 и Vanilla JS — вы платите один раз и получаете сайт, который не теряет платный трафик на долгой загрузке.
+          </p>
+        </div>
+
+        <div class="stats-trio">
+          <div>
+            <div class="stat-item__num">2–3</div>
+            <div class="stat-item__label">дня на сборку</div>
+          </div>
+          <div>
+            <div class="stat-item__num">0 BYN</div>
+            <div class="stat-item__label">подписка в год</div>
+          </div>
+          <div>
+            <div class="stat-item__num">100</div>
+            <div class="stat-item__label">PageSpeed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-glass">
+        <div class="compare-top">
+          <div style="font-size: 15px; font-weight: 500;">Сравнение архитектуры</div>
+          <div class="compare-toggle-wrap">
+            <button type="button" id="lbl-code" class="compare-toggle-label is-active">Чистый код</button>
+            <button type="button" id="compare-toggle" class="ios-switch" role="switch" aria-checked="false" aria-label="Переключить Чистый код и Конструктор">
+              <span class="ios-switch__thumb"></span>
+            </button>
+            <button type="button" id="lbl-builder" class="compare-toggle-label">Конструктор (Tilda)</button>
+          </div>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card">
+            <div class="compare-card__tag">СКОРОСТЬ</div>
+            <div id="cmp-speed-val" class="compare-card__value">0.4 сек · 100/100</div>
+            <p id="cmp-speed-desc" class="compare-card__desc">Мгновенная загрузка без потери кликов из Instagram, TikTok и Директа.</p>
+            <div class="compare-meter-bar"><div id="cmp-speed-bar" class="compare-meter-fill" style="width: 98%;"></div></div>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-card__tag">ПОДПИСКА</div>
+            <div id="cmp-cost-val" class="compare-card__value">0 BYN / год</div>
+            <p id="cmp-cost-desc" class="compare-card__desc">0 BYN за конструктор. Оплачивается только базовый домен и хостинг напрямую провайдеру.</p>
+            <div class="compare-meter-bar"><div id="cmp-cost-bar" class="compare-meter-fill" style="width: 100%;"></div></div>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-card__tag">ХОСТИНГ РБ</div>
+            <div id="cmp-host-val" class="compare-card__value">БелГИЭ · 5 мин</div>
+            <p id="cmp-host-desc" class="compare-card__desc">Готовый архив для hoster.by или ActiveCloud без зарубежных облаков.</p>
+            <div class="compare-meter-bar"><div id="cmp-host-bar" class="compare-meter-fill" style="width: 100%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         02 / ЧТО ВНУТРИ — 4 КАРТОЧКИ В ЧИСТОЙ АСИММЕТРИЧНОЙ BENTO-СЕТКЕ
+         ==================================================================== -->
+    <section id="inside" aria-labelledby="inside-heading">
+      <div class="section-top-bar">
+        <div>
+          <h2 id="inside-heading" class="section-heading">ЧТО <span class="editorial-italic">внутри</span></h2>
+          <p class="section-lead">Четыре стандарта качества под рекламный трафик в Беларуси.</p>
+        </div>
+        <a href="#contact" class="dual-btn">
+          <span class="pill-btn pill-btn--snow">Заказать</span>
+          <span class="circle-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="bento-services">
+        <article class="bento-card bento-card--1">
+          <span class="bento-num">01</span>
+          <div class="bento-content">
+            <h3 class="bento-title">Скорость и чистый код</h3>
+            <p class="bento-text">Семантический HTML5 и Vanilla JS. Открытие за доли секунды даже на мобильном 3G/4G.</p>
+          </div>
+        </article>
+
+        <article class="bento-card bento-card--2">
+          <span class="bento-num">02</span>
+          <div class="bento-content">
+            <h3 class="bento-title">Mobile-First адаптив от 360px</h3>
+            <p class="bento-text">Безупречная посадка на смартфоны под трафик из Instagram, TikTok и Telegram Ads без поломанных сеток.</p>
+          </div>
+        </article>
+
+        <!-- Снежно-белая контрастная карточка -->
+        <article class="bento-card bento-card--3">
+          <span class="bento-num">03</span>
+          <div class="bento-content">
+            <h3 class="bento-title">Заявки в Telegram + Pixel</h3>
+            <p class="bento-text">Лиды и UTM-метки прилетают в Telegram за секунду. Готовые цели под Meta Pixel и Яндекс.Метрику.</p>
+          </div>
+        </article>
+
+        <article class="bento-card bento-card--4">
+          <span class="bento-num">04</span>
+          <div class="bento-content">
+            <h3 class="bento-title">Хостинг РБ и БелГИЭ</h3>
+            <p class="bento-text">Архив за 5 минут ставится на hoster.by или ActiveCloud. Встроена Политика ПД (Закон № 99-З).</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         04 / УСЛОВИЯ — МАТОВОЕ СТЕКЛО ПОВЕРХ ЧЁТКОГО ЗАГОЛОВКА "Price"
+         ==================================================================== -->
+    <section id="pricing" class="pricing-showcase" aria-label="Условия и тарифы">
+      <div class="pricing-giant-bg" aria-hidden="true">Price</div>
+
+      <div class="pricing-glass-grid">
+        <article class="glass-tier-card">
+          <div>
+            <div class="glass-tier-card__top">
+              <div class="glass-tier-card__name">Субподряд · Таргетологам</div>
+              <div class="glass-tier-card__price">150–200 <span>BYN</span></div>
+            </div>
+            <ul class="glass-tier-list" style="margin-top: 22px;">
+              <li><span class="check-circle">✓</span><span>Сборка по макету или ТЗ за 1–2 дня</span></li>
+              <li><span class="check-circle">✓</span><span>Заявки в Telegram + UTM-метки</span></li>
+              <li><span class="check-circle">✓</span><span>Meta / TikTok Pixel и Метрика</span></li>
+              <li><span class="check-circle">✓</span><span>Надёжный White-Label подряд</span></li>
+            </ul>
+          </div>
+          <button type="button" class="tier-cta tier-cta--dark" data-select-tariff="Субподряд для таргетолога (150–200 BYN)">
+            Выбрать партнёрский
+          </button>
+        </article>
+
+        <article class="glass-tier-card">
+          <div>
+            <div class="glass-tier-card__top">
+              <div class="glass-tier-card__name">Под ключ · Для бизнеса</div>
+              <div class="glass-tier-card__price">от 350 <span>BYN</span></div>
+            </div>
+            <ul class="glass-tier-list" style="margin-top: 22px;">
+              <li><span class="check-circle">✓</span><span>Структура, тексты и люкс-дизайн</span></li>
+              <li><span class="check-circle">✓</span><span>Чистый код + квиз / калькулятор</span></li>
+              <li><span class="check-circle">✓</span><span>Заявки в Telegram + аналитика</span></li>
+              <li><span class="check-circle">✓</span><span>Помощь с подключением на hoster.by</span></li>
+            </ul>
+          </div>
+          <button type="button" class="tier-cta tier-cta--snow" data-select-tariff="Лендинг под ключ для бизнеса (от 350 BYN)">
+            Заказать под ключ
+          </button>
+        </article>
+
+      </div>
+
+      <div class="hosting-note">
+        <span class="hosting-note__badge">ВАЖНО О ЗАПУСКЕ</span>
+        <p class="hosting-note__text">
+          <strong>Домен и хостинг на hoster.by оплачиваются отдельно, плюсом к цене разработки.</strong> Эти деньги идут не мне, а напрямую хостинг-компании, чтобы ваш сайт был открыт и виден другим пользователям в интернете. Это не переплата, а стандартная база, как у всех сайтов — я помогу всё быстро подключить и настроить.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         05 / ФОРМА ЗАЯВКИ
+         ==================================================================== -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="contact-glass">
+        <div>
+          <h2 id="contact-heading" class="section-heading">ОБСУДИМ <span class="editorial-italic">задачу</span></h2>
+          <p class="section-lead">
+            Оставьте контакт или напишите напрямую в Telegram — отвечу за 15 минут и назову точную стоимость в BYN.
+          </p>
+
+          <a href="https://t.me/quickcodeby" target="_blank" rel="noopener" class="contact-direct-card">
+            <div>
+              <div class="contact-direct-card__label">ПРЯМАЯ СВЯЗЬ</div>
+              <div class="contact-direct-card__val">@quickcodeby</div>
+            </div>
+            <span style="font-size: 18px; font-weight: 700;">↗</span>
+          </a>
+        </div>
+
+        <div>
+          <div class="form-presets" role="group" aria-label="Быстрый выбор формата">
+            <button type="button" class="preset-chip" data-preset="Субподряд для таргетолога (150–200 BYN)">+ Субподряд</button>
+            <button type="button" class="preset-chip" data-preset="Лендинг под ключ для бизнеса (от 350 BYN)">+ Под ключ</button>
+            <button type="button" class="preset-chip" data-preset="Перенос с Tilda на чистый код + хостинг РБ">+ Перенос с Tilda</button>
+          </div>
+
+          <form id="quickcode-lead-form" class="swiss-form" novalidate>
+            <input type="text" id="lead-name" name="name" class="form-input" placeholder="Ваше имя *" required>
+            <input type="text" id="lead-contact" name="contact" class="form-input" placeholder="Telegram (@username) или телефон *" required>
+            <textarea id="lead-task" name="task" class="form-textarea" placeholder="Коротко о задаче, нише или сроках"></textarea>
+
+            <label class="form-consent">
+              <input type="checkbox" id="lead-consent" name="consent" required checked>
+              <span>
+                Согласен на обработку персональных данных в соответствии с
+                <button type="button" class="policy-trigger" data-open-policy="true">Политикой конфиденциальности (Закон РБ № 99-З)</button>.
+              </span>
+            </label>
+
+            <button type="submit" class="tier-cta tier-cta--snow">
+              Отправить заявку →
+            </button>
+
+            <div id="form-status" class="form-status" role="region" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-cell">
+        <span>РАЗРАБОТЧИК</span>
+        <span class="footer-cell__val">QuickCode · Дмитрий</span>
+      </div>
+      <div class="footer-cell">
+        <span>ЛОКАЦИЯ</span>
+        <span class="footer-cell__val">Минск · Работаю по всей РБ</span>
+      </div>
+      <div class="footer-cell">
+        <span>TELEGRAM</span>
+        <span class="footer-cell__val"><a href="https://t.me/quickcodeby" target="_blank" rel="noopener">@quickcodeby ↗</a></span>
+      </div>
+      <div class="footer-cell">
+        <span>EMAIL &amp; ПД</span>
+        <span class="footer-cell__val">
+          <a href="mailto:ssonx245@gmail.com">ssonx245@gmail.com</a> ·
+          <button type="button" class="policy-trigger" data-open-policy="true">Политика РБ</button>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (ЗАКОН РБ № 99-З) -->
+  <div id="policy-modal" class="swiss-modal" role="dialog" aria-modal="true" aria-labelledby="policy-modal-title">
+    <div class="swiss-modal__dialog">
+      <div class="swiss-modal__header">
+        <h3 id="policy-modal-title" class="swiss-modal__title">ПОЛИТИКА ПЕРСОНАЛЬНЫХ ДАННЫХ (РБ)</h3>
+        <button type="button" class="swiss-modal__close" data-close-modal="true">ЗАКРЫТЬ</button>
+      </div>
+      <div class="swiss-modal__body">
+        <p>Настоящая Политика разработана в соответствии с Законом Республики Беларусь от 7 мая 2021 г. № 99-З «О защите персональных данных».</p>
+        <h4>1. Оператор</h4>
+        <p>Разработчик: <strong>Дмитрий</strong> (QuickCode), г. Минск. Email: <strong>ssonx245@gmail.com</strong>, Telegram: <a href="https://t.me/quickcodeby" target="_blank" rel="noopener">@quickcodeby</a>.</p>
+        <h4>2. Цель и состав данных</h4>
+        <p>Имя, контакт в Telegram или телефон и описание задачи используются исключительно для обратной связи и оценки стоимости разработки сайта.</p>
+        <h4>3. Хранение и отзыв согласия</h4>
+        <p>Данные хранятся не более 1 года, не передаются третьим лицам и удаляются по первому запросу в <a href="https://t.me/quickcodeby" target="_blank" rel="noopener">@quickcodeby</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- АНИМАЦИЯ: САНТА НА САНЯХ С ОЛЕНЯМИ И ПЛАШКОЙ -40% (8 СЕК РАЗ В МИНУТУ) -->
+  <div id="santa-flyby" class="santa-flyby" aria-hidden="true">
+    <div id="santa-train" class="santa-train">
+      <div class="santa-sleigh-wrap">
+        <img src="assets/santa-sleigh.jpg" alt="" class="santa-sleigh-img">
+      </div>
+      <div class="santa-rope" aria-hidden="true"></div>
+      <button type="button" id="santa-claim" class="santa-banner" data-select-tariff="Зимняя скидка -40% на первый заказ" aria-label="На первый заказ скидка 40% — забрать">
+        <span class="santa-garland" aria-hidden="true">
+          <svg class="santa-garland__wire" viewBox="0 0 280 22" preserveAspectRatio="none">
+            <path d="M0,4 Q46,18 93,6 T186,6 T280,4" fill="none" stroke="#1E1E22" stroke-width="1.6"/>
+          </svg>
+          <span class="bulb bulb--red" style="left: 8%; top: 7px;"></span>
+          <span class="bulb bulb--gold" style="left: 20%; top: 11px;"></span>
+          <span class="bulb bulb--snow" style="left: 32%; top: 8px;"></span>
+          <span class="bulb bulb--red" style="left: 44%; top: 5px;"></span>
+          <span class="bulb bulb--gold" style="left: 56%; top: 10px;"></span>
+          <span class="bulb bulb--snow" style="left: 68%; top: 11px;"></span>
+          <span class="bulb bulb--red" style="left: 80%; top: 7px;"></span>
+          <span class="bulb bulb--gold" style="left: 91%; top: 5px;"></span>
+        </span>
+        <span class="santa-banner__badge">−40%</span>
+        <span class="santa-banner__body">
+          <strong class="santa-banner__title">На первый заказ скидка 40%</strong>
+          <span class="santa-banner__sub">Нажмите, чтобы зафиксировать →</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
